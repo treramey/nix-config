@@ -1,12 +1,14 @@
 #!/usr/bin/env sh
 
-# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-# sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
 
 yabai -m config debug_output on
 
 # 窗口平铺
-yabai -m config layout bsp
+# yabai -m config layout bsp
+# 窗口平铺
+yabai -m space --layout bsp
 
 # 窗口间距设置
 yabai -m config top_padding 12
@@ -56,14 +58,16 @@ yabai -m config external_bar all:0:0
 # 修改窗口阴影 on: 打开 off: 关闭 float: 只显示浮动窗口的阴影
 yabai -m config window_shadow float
 
-yabai -m config window_animation_duration 0.6
-yabai -m config window_animation_frame_rate 120
-
 # 窗口透明度设置
 yabai -m config window_opacity on
 # 配置活动窗口不透明度
-yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.9
+yabai -m config active_window_opacity 0.9
+yabai -m config normal_window_opacity 0.72
 yabai -m config window_opacity_duration 0.0
+
+# 忽略的 app
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^WeCom$" manage=off
 
 echo "yabai configuration loaded.."
