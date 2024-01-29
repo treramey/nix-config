@@ -46,7 +46,7 @@
         ./modules/homebrew-mirror.nix
 
         ./modules/host-users.nix
-        ./modules/karabiner.nix
+        # ./modules/karabiner.nix
         # ./modules/wm
 
         home-manager.darwinModules.home-manager
