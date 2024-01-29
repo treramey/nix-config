@@ -11,7 +11,7 @@ in {
     ./tmux.nix
     ./lazygit.nix
     ./zoxide.nix
-    ./pyenv.nix
+    # ./pyenv.nix
     # ./neovim.nix
   ];
 
