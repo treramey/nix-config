@@ -43,7 +43,6 @@
         ./modules/nix-core.nix
         ./modules/system.nix
         ./modules/apps.nix
-        ./modules/homebrew-mirror.nix
 
         ./modules/host-users.nix
         # ./modules/karabiner.nix

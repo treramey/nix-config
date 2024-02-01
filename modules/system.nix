@@ -76,6 +76,7 @@
         NSAutomaticSpellingCorrectionEnabled = false; # disable auto spelling correction(自动拼写检查)
         NSNavPanelExpandedStateForSaveMode = true; # expand save panel by default(保存文件时的路径选择/文件名输入页)
         NSNavPanelExpandedStateForSaveMode2 = true;
+        _HIHideMenuBar = true;
       };
 
       # Customize settings that not supported by nix-darwin directly

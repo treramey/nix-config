@@ -6,7 +6,10 @@
     unzip
 
     # utils
-    ripgrep # recursively searches directories for a regex pattern
-    fzf # A command-line fuzzy finder
+    fd
+    fzf
+    ripgrep
+
+    just
   ];
 }
