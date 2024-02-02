@@ -22,11 +22,6 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
-
-    mvim = {
-      url = "github:emxxjnm/nvim";
-      flake = false;
-    };
   };
 
   outputs = inputs @ {
@@ -35,32 +30,31 @@
     nix-darwin,
     home-manager,
     ...
-  }: {
+  }: let
+    username = "myles";
+    fullname = "Myles Mo";
+    usermail = "mylesmo.ash@gmail.com";
+    system = "x86_64-darwin";
+    specialArgs = inputs // { inherit username usermail fullname; };
+  in {
     darwinConfigurations."macos-nix" = nix-darwin.lib.darwinSystem {
-      system = "x86_64-darwin";
-      specialArgs = {inherit inputs;};
+      inherit system specialArgs;
       modules = [
-        ./modules/nix-core.nix
-        ./modules/system.nix
-        ./modules/apps.nix
-
-        ./modules/host-users.nix
-        # ./modules/karabiner.nix
-        # ./modules/wm
+        ./modules/darwin
 
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 
-          home-manager.extraSpecialArgs = inputs;
+          home-manager.extraSpecialArgs = specialArgs;
 
-          home-manager.users.myles = import ./home;
+          home-manager.users.myles = import ./home/darwin;
         }
       ];
     };
 
-    formatter.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.alejandra;
+    formatter.${system} = nixpkgs.legacyPackages.x86_64-darwin.alejandra;
   };
 
   nixConfig = {

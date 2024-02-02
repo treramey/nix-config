@@ -1,25 +1,6 @@
-{...}: let
-  username = "myles";
-in {
-  # import sub modules
-  imports = [
-    ./core.nix
-    ./zsh.nix
-    ./git.nix
-    ./starship.nix
-    ./alacritty.nix
-    ./tmux.nix
-    ./lazygit.nix
-    ./zoxide.nix
-    # ./pyenv.nix
-    # ./neovim.nix
-  ];
-
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
+{username, ...}: {
   home = {
-    username = username;
-    homeDirectory = "/Users/${username}";
+    inherit username;
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage

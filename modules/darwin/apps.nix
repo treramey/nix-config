@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, lib, ...}: let
   # Homebrew Mirror
   homebrew_mirror_env = {
     HOMEBREW_API_DOMAIN = "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api";
@@ -32,7 +32,7 @@ in {
   ];
 
   environment.variables = {
-    EDITOR = "nvim"
+    EDITOR = "nvim";
   }
   // homebrew_mirror_env;
 
@@ -54,11 +54,11 @@ in {
       # cleanup = "zap";
     };
 
-    masApps = {
-      WeCom = 1189898970;
-      Wechat = 836500024;
-      QQMusic = 595615424;
-    };
+    # masApps = {
+    #   WeCom = 1189898970;
+    #   Wechat = 836500024;
+    #   QQMusic = 595615424;
+    # };
 
     taps = [
       "homebrew/cask-fonts"
