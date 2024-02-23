@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   services.skhd = {
     enable = true;
     skhdConfig = builtins.readFile ./skhdrc;
@@ -13,6 +10,5 @@
   in {
     StandardErrorPath = "${homeDir}/Library/Logs/skhd.stderr.log";
     StandardOutPath = "${homeDir}/Library/Logs/skhd.stdout.log";
-  
   };
 }

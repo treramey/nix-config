@@ -34,27 +34,18 @@
     username = "myles";
     fullname = "Myles Mo";
     usermail = "mylesmo.ash@gmail.com";
-    system = "x86_64-darwin";
-    specialArgs = inputs // { inherit username usermail fullname; };
-  in {
-    darwinConfigurations."macos-nix" = nix-darwin.lib.darwinSystem {
-      inherit system specialArgs;
-      modules = [
-        ./modules/darwin
+    specialArgs = inputs // {inherit username usermail fullname;};
 
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-
-          home-manager.extraSpecialArgs = specialArgs;
-
-          home-manager.users.myles = import ./home/darwin;
-        }
-      ];
-    };
-
-    formatter.${system} = nixpkgs.legacyPackages.x86_64-darwin.alejandra;
+    systems = ["x86_64-darwin"];
+    forEachSystem = f: (nixpkgs.lib.genAttrs systems f);
+    allSystemConfigurations = import ./systems {inherit self inputs specialArgs;};
+  in 
+    allSystemConfigurations
+    // {
+      homeManagerModules = import ./modules/home;
+      formatter = forEachSystem (
+        system: nixpkgs.legacyPackages.${system}.alejandra
+      );
   };
 
   nixConfig = {

@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 # https://github.com/koekeishiya/yabai/wiki/Commands
 
 # 切换为平铺模式
@@ -39,8 +41,8 @@ alt + ctrl - n : yabai -m space --create && \
                   yabai -m window --space "${index}" && \
                   yabai -m space --focus "${index}" && \
                   yabai -m space --layout bsp
-# destroy desktop
-alt + ctrl - w : yabai -m space --destroy
+# destroy space 
+alt + ctrl - s : yabai -m space --destroy
 # reboot Yabai
 alt + ctrl - r : /usr/bin/env osascript <<< "display notification \"Yabai is reloading\" with title \"Yabai\""; \
                  launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
@@ -65,4 +67,3 @@ alt + ctrl - 6 : yabai -m window --space  6; yabai -m space --focus 6
 alt + ctrl - 7 : yabai -m window --space  7; yabai -m space --focus 7
 alt + ctrl - 8 : yabai -m window --space  8; yabai -m space --focus 8
 alt + ctrl - 9 : yabai -m window --space  9; yabai -m space --focus 9
-

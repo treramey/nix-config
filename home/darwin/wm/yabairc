@@ -7,6 +7,7 @@ yabai -m config debug_output on
 
 # 窗口平铺
 # yabai -m config layout bsp
+
 # 窗口平铺
 yabai -m space --layout bsp
 
@@ -18,7 +19,7 @@ yabai -m config right_padding 12
 yabai -m config window_gap 12
 
 # 设置鼠标是否跟随当前活动窗口 默认 off: 关闭 on: 开启
-yabai -m config mouse_follows_focus on
+yabai -m config mouse_follows_focus off
 
 # 焦点跟随鼠标 默认off: 关闭  autoraise:自动提升 autofocus: 自动对焦
 yabai -m config focus_follows_mouse autofocus

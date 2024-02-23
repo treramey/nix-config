@@ -1,5 +1,4 @@
-{mvim, ...}: 
-{
+{mvim, ...}: {
   programs.neovim = {
     enable = true;
 

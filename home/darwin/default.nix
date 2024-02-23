@@ -1,8 +1,8 @@
 {...}: {
   imports = [
-  ../mixin
+    ../mixin
 
-  ./core.nix
-  ./karabiner
+    ./core.nix
+    ./karabiner
   ];
 }

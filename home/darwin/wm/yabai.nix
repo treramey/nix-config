@@ -1,4 +1,8 @@
-{config, lib, ...}: let
+{
+  config,
+  lib,
+  ...
+}: let
   homeDir = config.users.users.myles.home;
 in {
   services.yabai = {

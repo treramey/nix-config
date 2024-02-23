@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   # Homebrew Mirror
   homebrew_mirror_env = {
     HOMEBREW_API_DOMAIN = "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api";
@@ -29,14 +33,16 @@ in {
     neovim
     git
     just
+    rustup
   ];
 
-  environment.variables = {
-    EDITOR = "nvim";
-  }
-  // homebrew_mirror_env;
+  environment.variables =
+    {
+      EDITOR = "nvim";
+    }
+    // homebrew_mirror_env;
 
-# Set environment variables for nix-darwin before run `brew bundle`.
+  # Set environment variables for nix-darwin before run `brew bundle`.
   system.activationScripts.homebrew.text = lib.mkBefore ''
     echo >&2 '${homebrew_env_script}'
     ${homebrew_env_script}

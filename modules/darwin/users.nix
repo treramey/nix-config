@@ -1,6 +1,9 @@
-{username, fullname, ...}: let
-  hostname = "macos-nix";
-in {
+{
+  username,
+  fullname,
+  ...
+}:
+{
   users.users."${username}" = {
     home = "/Users/${username}";
     description = fullname;
