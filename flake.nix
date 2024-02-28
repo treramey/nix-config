@@ -31,9 +31,9 @@
     home-manager,
     ...
   }: let
-    username = "myles";
-    fullname = "Myles Mo";
-    usermail = "mylesmo.ash@gmail.com";
+    username = "treramey";
+    fullname = "Trevor Ramey";
+    usermail = "treramey@gmail.com";
     specialArgs = inputs // {inherit username usermail fullname;};
 
     systems = ["x86_64-darwin"];
